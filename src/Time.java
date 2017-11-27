@@ -20,7 +20,7 @@ public class Time {
         int secondsLeft = secondsTotal - secondsSoFar;
         System.out.println("Seconds left in day:\n" + secondsLeft);
         //calculate and print the percentage of the day that has passed
-        int percent = (secondsTotal - secondsSoFar) / secondsTotal;
+        int percent = ((100 * secondsTotal - 100 * secondsLeft) / secondsTotal);
         System.out.println("The percentage of the day that has passed is:\n"
         + percent + "%");
     }
