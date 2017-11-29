@@ -19,6 +19,7 @@ public class ScannerTest {
         int age;
         double testInt;
         int testDouble;
+        String test;
         Scanner in = new Scanner(System.in);
 
         System.out.print("What is your name? ");
@@ -37,6 +38,10 @@ public class ScannerTest {
         System.out.print("Test out using an integer: ");
         testInt = in.nextDouble();
         System.out.printf("You typed %f\n", testInt);
+        in.nextLine();
+        System.out.print("What is your name? ");
+        test = in.nextLine();
+        System.out.printf("Hello %s, age %d\n", test, age);
         System.out.print("Now try using a double: ");
         testDouble = in.nextInt();
         in.nextLine();
