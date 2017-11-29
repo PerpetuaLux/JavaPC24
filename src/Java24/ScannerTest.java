@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author Jonathan
  */
-public class scannertest {
+public class ScannerTest {
         public static void main(String[] args) {
         String name;
         int age;
@@ -27,6 +27,7 @@ public class scannertest {
 
         System.out.print("What is your age? ");
         age = in.nextInt();
+        in.nextLine();
         System.out.print("What is your name? ");
         name = in.nextLine();
         System.out.printf("Hello %s, age %d\n", name, age);
