@@ -5,6 +5,7 @@
  */
 package Java24;
 
+import java.util.Base64;
 import java.util.Scanner;
 
 /**
@@ -16,15 +17,38 @@ public class Encrypter {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter text to be encrypted: ");
         String input = in.nextLine();
+        System.out.println("Jonathan: " + jonathansOutput(input));
+        System.out.println("Dad: " + dadsOutput(input));
+    }
+
+    private static String jonathansOutput(String input) {
+        StringBuilder sb = new StringBuilder(input.length());
+
         char[] process = input.toCharArray();
         for (int dex = 0; dex < process.length; dex++) {
             char current = process[dex];
             if (current == ' ') {
-                System.out.print(current);
+                sb.append(' ');
             } else {
-                System.out.print((char)(current + 60 + (Math.sqrt(dex))));
+                sb.append((char)(current + 60 + (Math.sqrt(dex))));
             }
         }
-        System.out.println();
+        return sb.toString();
     }
+
+    private static String dadsOutput(String input) {
+        StringBuilder sb = new StringBuilder(input.length());
+
+        char[] process = input.toCharArray();
+        for (int dex = 0; dex < process.length; dex++) {
+            char current = process[dex];
+            if (current == ' ') {
+                sb.append(' ');
+            } else {
+                sb.append((char) (current + 60 + (char) (Math.sqrt(dex))));
+            }
+        }
+        return Base64.getEncoder().encodeToString(sb.toString().getBytes());
+    }
+
 }
