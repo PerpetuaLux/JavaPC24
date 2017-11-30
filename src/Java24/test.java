@@ -6,6 +6,8 @@ class test{
         System.out.println("My speed is " + speed + ", my age is " + age 
                 + " and the time is " + time);
         //testing the thing
+        double pi = Math.PI;
+        System.out.println(pi);
     }
     
 }
