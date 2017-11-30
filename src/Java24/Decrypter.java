@@ -22,7 +22,7 @@ public class Decrypter {
             if (current == ' ') {
                 System.out.print(current);
             } else {
-                System.out.print((char)(current - 80 - (Math.sqrt(dex))));
+                System.out.print((char)(current - 60 - (Math.sqrt(dex))));
             }
         }
         System.out.println();
