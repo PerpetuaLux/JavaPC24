@@ -48,6 +48,7 @@ public class HappyNumbers {
         //test to see if it's happy
         testHappy();
         for (;num != 1 && num != 4;) {
+            testNum();
             testHappy();
         }
             System.out.println(num);
