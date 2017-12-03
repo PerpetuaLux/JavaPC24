@@ -20,6 +20,18 @@ public class HappyNumbers {
             num = num + (char)(Math.sqrt(digits[dex]));
         }
     }
+    public static void testHappy() {
+            switch (num) {
+                case 1:
+                    System.out.println("Happy!");
+                    break;
+                case 4:
+                    System.out.println("Unhappy!");
+                    break;
+                default:
+                    break;
+            }
+    }
     public static void seperator(int input) {
         String number = String.valueOf(input);
         digits = number.toCharArray();
@@ -33,12 +45,11 @@ public class HappyNumbers {
         seperator(input);
         //square each digit, then add together
         testNum();
-            if (num == 1){
-                System.out.println("Happy!");
-            } else if (num == 4) {
-                System.out.println("Unhappy!");
-            } else {
-            }
+        //test to see if it's happy
+        testHappy();
+        for (;num != 1 && num != 4;) {
+            testHappy();
+        }
             System.out.println(num);
     }
 }
