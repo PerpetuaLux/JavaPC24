@@ -64,11 +64,11 @@ public class HappyNumbersPrecalc {
             } else {
                 System.out.println("Unhappy!");
             }
-            } else {
-        for (;num >100;) {
-            testNum();
-            testHappy();
+        } else {
+            for (;num >100;) {
+                testNum();
+                testHappy();
+            }
         }
-        }
-        }
+    }
 }
