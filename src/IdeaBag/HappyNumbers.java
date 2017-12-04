@@ -12,12 +12,12 @@ import java.util.*;
  * @author Jonathan
  */
 public class HappyNumbers {
-    
-        static char[] digits;
+        static int[] digits;
         static int num = 0;
+        
     public static void testNum() {
         for (int dex = 0; dex < digits.length; dex++) {
-            num = num + (char)(Math.sqrt(digits[dex]));
+            num = num + (char)((digits[dex])*(digits[dex]));
         }
     }
     public static void testHappy() {
@@ -33,8 +33,12 @@ public class HappyNumbers {
             }
     }
     public static void seperator(int input) {
-        String number = String.valueOf(input);
-        digits = number.toCharArray();
+        int length = String.valueOf(input).length();
+        digits = new int[length];
+        for (int dex = 0; dex < length; dex++) {
+            digits[dex] = input % 10;
+            input = input / 10;
+        }
     }
     public static void main(String[] args) {
         //take in number
