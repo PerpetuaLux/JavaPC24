@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Jonathan
  */
-public class BinaryConverter {
+public class BinaryDecimalConverter {
     public static void displayBinary(int value) {
         if (value > 0) {
             displayBinary(value / 2);
