@@ -20,6 +20,11 @@ public class SecondsConverter {
         Scanner in = new Scanner(System.in);
         
         System.out.print("Enter number of seconds to be converted: ");
+        if (!in.hasNextInt()) {
+            String error = in.next();
+            System.err.println(error + " is not an int");
+            return;
+        }
         input = in.nextInt();
         seconds = input % 60;
         minutes = (input / 60) % 60;

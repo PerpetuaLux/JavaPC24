@@ -39,6 +39,11 @@ public class HappyNumbersPrecalc {
         //take in number
         Scanner in = new Scanner(System.in);
         System.out.print("Enter number to be tested: ");
+        if (!in.hasNextInt()) {
+            String error = in.next();
+            System.err.println(error + " is not an int");
+            return;
+        }
         int input = in.nextInt();
         num = input;
         //seperate number into digits in an array

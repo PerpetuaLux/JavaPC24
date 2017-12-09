@@ -11,6 +11,11 @@ public static void main(String[] args) {
       
    System.out.printf("Approximation of the number PI through the Viete's series\n");
    System.out.printf("\nEnter the number of iterations: ");
+   if (!in.hasNextDouble()) {
+       String error = in.next();
+       System.err.println(error + " is not a double");
+       return;
+   }
    n = in.nextDouble();
    System.out.printf("\nPlease wait. Running...\n");   
     

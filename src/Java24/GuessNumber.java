@@ -19,6 +19,11 @@ public class GuessNumber {
                 + " Can you guess what it is?");
         //enter user guess
         System.out.print("Guess a number: ");
+        if (!in.hasNextInt()) {
+            String error = in.next();
+            System.err.println(error + " is not an int");
+            return;
+        }
         int guess = in.nextInt();
         System.out.printf("You guessed: %d\n", guess);
         // pick a random number
