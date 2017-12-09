@@ -30,7 +30,7 @@ public class BinaryTextConverter {
     }
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter number to be converted: ");
+        System.out.print("Enter text to be converted: ");
         String input = in.nextLine();
         convertBinary(input);
         System.out.println();
