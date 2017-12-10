@@ -13,15 +13,20 @@ import java.util.Scanner;
  */
 public class DecimalBinaryConverter {
     public static void binaryConverter(String input) {
-            double output= 1.0;
-        
+        double output= 1.0;
+        //put input into an array
         char[] process = input.toCharArray();
+        //compute result
         for (int dex = 0; dex < process.length; dex++) {
-            char current = process[dex];
-            double progress = (current - 48) * Math.pow(2, process.length);
+            //set current value to int
+            int current = process[dex];
+            //multiply current value(either 0 or 1) by 2^(their position)
+            double progress = (current - 48) * Math.pow(2, (process.length - dex));
+            //add the results together
             output = output + progress;
         }
-            System.out.print(output);
+        //output decimal number
+        System.out.println(output);
     }
     
     
@@ -30,6 +35,5 @@ public class DecimalBinaryConverter {
         System.out.print("Enter binary to be converted: ");
         String input = in.nextLine();
         binaryConverter(input);
-        System.out.println();
     }
 }
