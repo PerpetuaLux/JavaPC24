@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Jonathan
+ * @author <Jonathan.Poalses>
  */
 public class TextBinaryConverter {
     //the general idea - The decimal number is equal to the sum of binary digits (dn) times their power of 2 (2n):

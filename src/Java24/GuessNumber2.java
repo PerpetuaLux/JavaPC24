@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Jonathan
+ * @author <Jonathan.Poalses>
  */
 public class GuessNumber2 {
     static int number = 0;

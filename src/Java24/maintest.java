@@ -8,7 +8,7 @@ package Java24;
 
 /**
  *
- * @author Jonathan
+ * @author <Jonathan.Poalses>
  */
 public class maintest {
     static void first() {

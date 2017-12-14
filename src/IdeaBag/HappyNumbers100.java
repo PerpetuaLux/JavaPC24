@@ -9,7 +9,7 @@ import java.util.*;
 
 /**
  *
- * @author Jonathan
+ * @author <Jonathan.Poalses>
  */
 public class HappyNumbers100 {
         static int[] digits;

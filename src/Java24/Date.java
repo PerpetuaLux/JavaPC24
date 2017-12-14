@@ -9,7 +9,7 @@ import java.util.Calendar;
 
 /**
  *
- * @author Jonathan
+ * @author <Jonathan.Poalses>
  */
 public class Date {
         public static void printAmerican(int date, int year, String dayName,

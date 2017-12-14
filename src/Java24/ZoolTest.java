@@ -8,7 +8,7 @@ package Java24;
 
 /**
  *
- * @author Jonathan
+ * @author <Jonathan.Poalses>
  */
 public class ZoolTest {
     public static void zool(int eleven, String pet, String street) {

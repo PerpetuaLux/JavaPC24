@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Jonathan
+ * @author <Jonathan.Poalses>
  */
 public class FermatCheck {
     public static void checkFermat(int a, int b, int c, int n) {

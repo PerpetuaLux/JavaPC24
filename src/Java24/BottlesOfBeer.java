@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Jonathan
+ * @author <Jonathan.Poalses>
  */
 public class BottlesOfBeer {
     public static void chorus(String liquid, int number) {

@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Jonathan
+ * @author <Jonathan.Poalses>
  */
 public class Decrypter {
     public static void main(String[] args) {

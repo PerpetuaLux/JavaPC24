@@ -7,7 +7,7 @@ package test;
 
 /**
  *
- * @author Jonathan
+ * @author <Jonathan.Poalses>
  */
 public class tesstdialogue extends javax.swing.JDialog {
 

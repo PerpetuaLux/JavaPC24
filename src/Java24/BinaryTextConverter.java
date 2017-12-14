@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Jonathan
+ * @author <Jonathan.Poalses>
  */
 public class BinaryTextConverter {
     public static void displayBinary(int value) {

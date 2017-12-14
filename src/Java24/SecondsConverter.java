@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Jonathan
+ * @author <Jonathan.Poalses>
  */
 public class SecondsConverter {
     public static void main(String[] args) {
