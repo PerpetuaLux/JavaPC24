@@ -53,6 +53,13 @@ public class MyMath {
         return n * -1 < 0;
     }
     
+    /**
+     *
+     * Returns the value of the first argument raised to the power of the second argument
+     * @param x
+     * @param n
+     * @return Returns the value of the first argument raised to the power of the second argument
+     */
     public static double pow(double x, int n) {
         if (n == 0) {
             return 1;
