@@ -30,6 +30,11 @@ public class MyMath {
         return a * b + c;
     }
     
+    /**
+     * Returns boolean value true if the inputted value is even, false otherwise
+     * @param a
+     * @return Returns boolean value true if the inputted value is even, false otherwise
+     */
     public static boolean isEven(int a) {
         return a % 2 == 0;
     }
@@ -38,6 +43,15 @@ public class MyMath {
         return MyMath.multadd(x, Math.exp(-x), Math.sqrt(1-Math.exp(-x)));
     }
     
+    /**
+     * Solves the ackerman function using the two inputted values
+     * Note - Don't use values higher that 4 as it will result in a stack
+     * overflow error due to the fact that its a dumb function with no
+     * practical real-life usage, it's just to prove it can be done.
+     * @param m
+     * @param n
+     * @return Returns the solution to the ackerman function
+     */
     public static int ack(int m, int n) {
         if (m == 0) {
             return n+1;
@@ -49,12 +63,16 @@ public class MyMath {
         return 0;
     }
     
+    /**
+     * Returns boolean true if value is positive, false otherwise
+     * @param n
+     * @return Returns boolean true if value is positive, false otherwise
+     */
     public static boolean isPositive(double n) {
         return n * -1 < 0;
     }
     
     /**
-     *
      * Returns the value of the first argument raised to the power of the second argument
      * @param x
      * @param n
@@ -72,5 +90,85 @@ public class MyMath {
         return 1 / pow(x, -n);
         }
         return x * pow(x, n-1);
+    }
+        /**
+     * Returns the value of the first argument raised to the power of the second argument
+     * Is the iterative version
+     * @param x
+     * @param n
+     * @return Returns the value of the first argument raised to the power of the second argument
+     */
+
+    public static double powI(double x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int c = n;
+        double result = 0;
+        double process = x;
+        while (c > 1) {
+            process = x * process;
+            c--;
+        }
+        return process;
+    }
+    
+    public static double sqrt(double a) {
+        double x = a/2;
+        double thingy = (x + a/x)/2;
+        double test = Math.abs(thingy - x);
+        if (Math.abs(thingy - x) == 0.0001) {
+        return thingy;
+        }
+            return xsqrt(thingy);
+    }
+    
+    public static double xsqrt(double a) {
+        if (a < 0) {
+            return Float.NaN;
+        }
+        if (a == 0 || a == -0) {
+            return 0.0;
+        }
+        double initialGuess = a/2;
+        double process = (initialGuess + a/initialGuess)/2;
+        double process2 = (process + a/process)/2;
+        while (Math.abs(process - process2) != 0) {
+            process = process2;
+            process2 = (process + a/process)/2;
+        }
+        return process2;
+        
+    }
+    
+    public static int factorial(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int recurse = factorial(n-1);
+        int result = n * recurse;
+        return result;
+    }
+    public static int ifactorial(int num) {
+        int result = 1;
+        if(num == 0) {
+            return 1;
+        }
+        else {
+            for(int i = 2; i <= num; i++) {
+                result *= i;
+            }
+            return result;
+        }
+    }
+    
+    public static double exp(double x) {
+        int n = 12;
+        double process = 1 + x;
+        while(n > 0 && n != 1) {
+            process = process + (MyMath.pow(x, n)/MyMath.factorial(n));
+            n--;
+        }
+        return process;
     }
 }
