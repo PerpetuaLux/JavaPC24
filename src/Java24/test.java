@@ -1,6 +1,9 @@
 package Java24;
 
 //import static test.testinit.*;
+
+import java.util.Arrays;
+
 class test{
 //    public static void main(String[] args) {
 //        System.out.println("My speed is " + speed + ", my age is " + age 
@@ -42,8 +45,8 @@ class test{
 //    }
     
     public static void main(String[] args) {
-        double result = MyMath.exp(7);
-        double result2 = Math.exp(7);
-        System.out.printf("%d\t%f\t%f\n", 131, result, result2);
+        double[] a = {1, 3, 5, 7, 9};
+        double[] b = MyMath.powArray(a, 3);
+        System.out.println(Arrays.toString(b));
     }
 }

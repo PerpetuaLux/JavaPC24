@@ -171,4 +171,23 @@ public class MyMath {
         }
         return process;
     }
+    
+    public static double gauss(double x) { //this doesn't work I dont think
+        int n = 3;
+        double result = 1;
+        while (n > 0) {
+            result += 
+                    Math.pow(-1, n) * Math.pow(x, (2 * n))/MyMath.factorial(n);
+            n--;
+        }
+        return result;
+    }
+    
+    public static double[] powArray(double[] a, int n) {
+        double[] x = new double[a.length];
+        for (int i = 0; i < a.length; i++) {
+            x[i] = Math.pow(a[i], n);
+        }
+        return x;
+    }
 }
