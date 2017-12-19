@@ -45,8 +45,7 @@ class test{
 //    }
     
     public static void main(String[] args) {
-        double[] a = {1, 3, 5, 7, 9};
-        double[] b = MyMath.powArray(a, 3);
-        System.out.println(Arrays.toString(b));
+        char test = '9';
+        System.out.println((int)test);
     }
 }
