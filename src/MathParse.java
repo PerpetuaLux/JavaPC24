@@ -20,6 +20,8 @@ public class MathParse {
     static String num = ("");
     static int length;
     static int position;
+    static int currentInt;
+    static int nextInt;
     public static void count() {
         counting++;
         if (counting >= 0 && counting < length) {
@@ -29,27 +31,58 @@ public class MathParse {
         }
         if (counting >= 1 && counting < length - 2) {
         lastin = process[counting - 1];
+        } else {
+            lastin = '@';
         }
         if (counting >= 0 && counting < length - 1) {
         nextin = process[counting + 1];
+        } else {
+            nextin = '@';
         }
     }
-    public static void num() {
-        
+    public static int num() {
         if (current >= 48 && current <= 57) {
             num = (num + current);
             count();
             num();
         }
+        return Integer.parseInt(num);
     }
-    
-    
+    public static int checkCurrent() {
+        if (current >= 48 && current <= 57) {
+            return 0;
+        } else if (current == '-') {
+            return 1;
+        } else if (current == '+') {
+            return 2;
+        } else return -1;
+    }
+    public static void subtract() {
+        count();
+        nextInt = num();
+        currentInt = currentInt - nextInt;
+    }
+    public static void add() {
+        count();
+        nextInt = num();
+        currentInt = currentInt - nextInt;
+    }
     public static void parseMethod(String input) {
         process = input.toCharArray();
         length = process.length;
         count();
-        num();
-        System.out.println(num);
+        for (;counting < length;) {
+        int activeType = checkCurrent();
+            if (activeType == 0) {
+                currentInt = num();
+            } else if (activeType == 1) {
+                subtract();
+            } else if (activeType == 2) {
+                add();
+            } else if (activeType == -1) {
+                return;
+            }
+        }
     }
     
     public static void main(String[] args) {
@@ -57,6 +90,6 @@ public class MathParse {
         System.out.print("Enter maths: ");
         String input = in.nextLine();
         parseMethod(input);
-        
+        System.out.println("= " + currentInt);
     }
 }
