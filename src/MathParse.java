@@ -60,11 +60,13 @@ public class MathParse {
     public static void subtract() {
         count();
         nextInt = num();
+        num = ("");
         currentInt = currentInt - nextInt;
     }
     public static void add() {
         count();
         nextInt = num();
+        num = ("");
         currentInt = currentInt + nextInt;
     }
     public static void parseMethod(String input) {
@@ -73,15 +75,21 @@ public class MathParse {
         count();
         for (;counting < length;) {
         int activeType = checkCurrent();
-            if (activeType == 0) {
-                currentInt = num();
-                num = ("");
-            } else if (activeType == 1) {
-                subtract();
-            } else if (activeType == 2) {
-                add();
-            } else if (activeType == -1) {
-                return;
+            switch (activeType) {
+                case 0:
+                    currentInt = num();
+                    num = ("");
+                    break;
+                case 1:
+                    subtract();
+                    break;
+                case 2:
+                    add();
+                    break;
+                case -1:
+                    return;
+                default:
+                    break;
             }
         }
     }
