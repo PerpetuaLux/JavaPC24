@@ -65,7 +65,7 @@ public class MathParse {
     public static void add() {
         count();
         nextInt = num();
-        currentInt = currentInt - nextInt;
+        currentInt = currentInt + nextInt;
     }
     public static void parseMethod(String input) {
         process = input.toCharArray();
@@ -75,6 +75,7 @@ public class MathParse {
         int activeType = checkCurrent();
             if (activeType == 0) {
                 currentInt = num();
+                num = ("");
             } else if (activeType == 1) {
                 subtract();
             } else if (activeType == 2) {
