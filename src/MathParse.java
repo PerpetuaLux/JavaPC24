@@ -55,6 +55,10 @@ public class MathParse {
             return 1;
         } else if (current == '+') {
             return 2;
+        } else if (current == '*') {
+            return 3;
+        } else if (current == '/') {
+            return 4;
         } else return -1;
     }
     public static void subtract() {
@@ -68,6 +72,18 @@ public class MathParse {
         nextInt = num();
         num = ("");
         currentInt = currentInt + nextInt;
+    }
+    public static void mult() {
+        count();
+        nextInt = num();
+        num = ("");
+        currentInt = currentInt * nextInt;
+    }
+    public static void div() {
+        count();
+        nextInt = num();
+        num = ("");
+        currentInt = currentInt / nextInt;
     }
     public static void parseMethod(String input) {
         process = input.toCharArray();
@@ -85,6 +101,12 @@ public class MathParse {
                     break;
                 case 2:
                     add();
+                    break;
+                case 3:
+                    mult();
+                    break;
+                case 4:
+                    div();
                     break;
                 case -1:
                     return;
