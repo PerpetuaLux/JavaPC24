@@ -3,8 +3,10 @@ package Java24;
 //import static test.testinit.*;
 
 import java.util.Arrays;
+import java.util.*;
+import java.io.*;
 
-class test{
+class Test{
 //    public static void main(String[] args) {
 //        System.out.println("My speed is " + speed + ", my age is " + age 
 //                + " and the time is " + time);
@@ -44,8 +46,11 @@ class test{
 //        System.out.println(result3);
 //    }
     
-    public static void main(String[] args) {
-        char test = '9';
-        System.out.println((int)test);
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner in = new Scanner(new FileReader("C:\\Users\\Jonathan\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.in"));
+        double output = in.nextDouble();
+        System.out.println(output);
+        double output2 = in.nextDouble();
+        System.out.println(output2);
     }
 }

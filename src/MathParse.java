@@ -20,8 +20,8 @@ public class MathParse {
     static String num = ("");
     static int length;
     static int position;
-    static int currentInt;
-    static int nextInt;
+    static float currentInt;
+    static float nextInt;
     public static void count() {
         counting++;
         if (counting >= 0 && counting < length) {
@@ -85,7 +85,7 @@ public class MathParse {
         num = ("");
         currentInt = currentInt / nextInt;
     }
-    public static void parseMethod(String input) {
+    public static float parseMethod(String input) {
         process = input.toCharArray();
         length = process.length;
         count();
@@ -109,18 +109,19 @@ public class MathParse {
                     div();
                     break;
                 case -1:
-                    return;
+                    return Float.NaN;
                 default:
                     break;
             }
         }
+        return currentInt;
     }
     
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter maths: ");
         String input = in.nextLine();
-        parseMethod(input);
-        System.out.println("= " + currentInt);
+        float result = parseMethod(input);
+        System.out.println("= " + result);
     }
 }
