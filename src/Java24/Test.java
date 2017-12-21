@@ -46,11 +46,15 @@ class Test{
 //        System.out.println(result3);
 //    }
     
-    public static void main(String[] args) throws FileNotFoundException {
-        Scanner in = new Scanner(new FileReader("C:\\Users\\Jonathan\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.in"));
-        double output = in.nextDouble();
-        System.out.println(output);
-        double output2 = in.nextDouble();
-        System.out.println(output2);
+//    public static void main(String[] args) throws FileNotFoundException {
+//        Scanner in = new Scanner(new FileReader("C:\\Users\\Jonathan\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.in"));
+//        String output = in.nextLine();
+//        System.out.println(output);
+//        String output2 = in.nextLine();
+//        System.out.println(output2);
+//    }
+    public static void main(String[] args) {
+        String test = "12345";
+        System.out.println();
     }
 }
