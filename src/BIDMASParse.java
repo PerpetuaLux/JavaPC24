@@ -182,13 +182,22 @@ public class BIDMASParse {
     public static char[] s(char[] input) {
         boolean mineDone = false;
         int length = input.length;
+        boolean negative = false;
         String output = "";
-        for (int a = 0; a < length; a++) {
+        for (int a = 1; a < length; a++) {
             if (input[a] == '*' || input[a] == '+' || input[a] == '/' || input[a] == '^') {
+                if (input[a-1] != '$' || input[a-1] != '+' || input[a-1] != '/' || input[a-1] != '^' || input[a-1] != '*') {
             output = (output + prevNum(input, a) + input[a]);
             mineDone = false;
+                }
+            } else if (input[a] == '-' &&  input[a-1] == '*' || input[a-1] == '/' || input[a-1] == '-' || input[a-1] == '+' || input[a-1] == '$') {
+                negative = true;
             } else if (input [a] == '-' && !mineDone) {
+                if (negative) {
+                output = (output + ((prevNum(input, a) * -1) - nextNum(input, a)));
+                } else {
                 output = (output + (prevNum(input, a) - nextNum(input, a)));
+                }
                 mineDone = true;
                 boolean symFound = false;
                 while (!symFound) {
@@ -219,10 +228,13 @@ public class BIDMASParse {
         int length = input.length;
         String output = "";
         pos++;
+        int startPos = pos;
         for (;input[pos] >= 48 && input[pos] <= 57 || input[pos] == '.';) {
             output = output + input[pos];
-            if (input[pos] == '*' || input[pos] == '+' || input[pos] == '/' || input[pos] == '^' || input[pos] == '/' || input[pos] == '$') {
+            if (startPos != pos && input[pos] == '*' || input[pos] == '+' || input[pos] == '/' || input[pos] == '^' || input[pos] == '/' || input[pos] == '$') {
                 break;
+            } else if (startPos == pos && input[pos] == '-' ) {
+                output = output + '-';
             }
             pos++;
         }
@@ -236,6 +248,9 @@ public class BIDMASParse {
         for (;input[pos] >= 48 && input[pos] <= 57 || input[pos] == '.';) {
             output = output + input[pos];
             if (input[pos] == '*' || input[pos] == '+' || input[pos] == '/' || input[pos] == '^' || input[pos] == '/' || input[pos] == '$') {
+                if (input[pos] == '-' && input[pos-1] == '*' || input[pos-1] == '+' || input[pos-1] == '/' || input[pos-1] == '^' || input[pos-1] == '/' || input[pos-1] == '$') {
+                    output = (output + '-');
+                }
                 break;
             }
             pos--;
@@ -265,10 +280,12 @@ public class BIDMASParse {
         return result;
     }
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Enter maths: ");
+        Scanner in = new Scanner(new FileReader("C:\\Users\\Jonathan\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.in"));
+        System.out.println("Enter maths: ");
+        for (int a = 6; a > 0; a--) {
         String input = in.nextLine();
         float result = parse(input);
         System.out.println(result);
+        }
     }
 }
