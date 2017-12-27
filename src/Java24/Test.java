@@ -54,7 +54,8 @@ class Test{
 //        System.out.println(output2);
 //    }
     public static void main(String[] args) {
-        String test = "12345";
-        System.out.println();
+        int[] a = MyMath.randomArray(50);
+        int[] test = MyMath.histogram(a, 5);
+        System.out.println(Arrays.toString(test));
     }
 }

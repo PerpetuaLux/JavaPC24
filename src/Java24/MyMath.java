@@ -5,6 +5,8 @@
  */
 package Java24;
 
+import java.util.Random;
+
 /**
  *
  * @author <Jonathan.Poalses>
@@ -183,11 +185,73 @@ public class MyMath {
         return result;
     }
     
+    /**
+     * Returns an array in which each value is equal to each value in the first array raised to n
+     * @param a
+     * @param n
+     * @return Returns an array in which each value is equal to each value in the first array raised to n
+     */
     public static double[] powArray(double[] a, int n) {
         double[] x = new double[a.length];
         for (int i = 0; i < a.length; i++) {
             x[i] = Math.pow(a[i], n);
         }
         return x;
+    }
+    
+    /**
+     * Returns an array of random integers.
+     * @param size
+     * @return Returns an array of random integers
+     */
+    public static int[] randomArray(int size) {
+        Random random = new Random();
+        int[] a = new int[size];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = random.nextInt(100);
+        }
+        return a;
+    }
+    
+    /**
+     * Computes the number of array elements in [low, high).
+     * @param a
+     * @param low
+     * @param high
+     * @return Number of array elements within range
+     */
+    public static int inRange(int[] a, int low, int high) {
+        int count = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] >= low && a[i] < high) {
+                count++;
+            }
+        }
+        return count;
+    }
+    
+    public static int[] histogram(int[] a, int b) {
+        int size = 100 / b;
+        int buildup = 0;
+        int i = 0;
+        int result[] = new int[b];
+        while (buildup < 100) {
+            result[i]  = inRange(a, buildup, buildup + size);
+            i++;
+            buildup = buildup + size;
+        }
+        return result;
+    }
+    
+    public static int indexOfMax(double[] a) {
+        int max = 0;
+        double maxVal = a[0];
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] > maxVal) {
+                maxVal = a[i];
+                max = i;
+            }
+        }
+        return max;
     }
 }
