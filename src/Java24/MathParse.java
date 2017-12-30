@@ -1,3 +1,5 @@
+package Java24;
+
 
 import java.util.Scanner;
 
