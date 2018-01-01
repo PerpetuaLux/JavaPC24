@@ -265,7 +265,15 @@ public class BIDMASParse {
     }
     public static float parse(String mainInput) {
         mainInput = ('$' + mainInput + '@');
-        char[] input = mainInput.toCharArray();
+        char[] preput = mainInput.toCharArray();
+        String inputS = "";
+        for (int a = 0; a < preput.length; a++) {
+            if (preput[a] == ' ') {
+            } else {
+                inputS = inputS + preput[a];
+            }
+        }
+        char[] input = inputS.toCharArray();
         char[] process = b(input);
         process = i(process);
         process = d(process);
@@ -284,13 +292,13 @@ public class BIDMASParse {
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
         Scanner in = new Scanner(new FileReader("C:\\Users\\Jonat\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.in"));
         System.out.println("Enter maths: ");
-        PrintWriter writer = new PrintWriter("C:\\Users\\Jonat\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.out", "UTF-8");
-        for (int a = 6; a > 0; a--) {
-        String input = in.nextLine();
-        float result = parse(input);
-        System.out.println(result);
-        writer.println(result);
+        try (PrintWriter writer = new PrintWriter("C:\\Users\\Jonat\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.out", "UTF-8")) {
+            for (int a = 15; a > 0; a--) {
+                String input = in.nextLine();
+                float result = parse(input);
+                System.out.println(result);
+                writer.println(result);
+            }
         }
-        writer.close();
     }
 }
