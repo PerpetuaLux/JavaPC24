@@ -4,6 +4,7 @@ package Java24;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.io.*;
+import java.util.Objects;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -291,13 +292,25 @@ public class BIDMASParse {
     }
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
         Scanner in = new Scanner(new FileReader("C:\\Users\\Jonat\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.in"));
+        Scanner exp = new Scanner(new FileReader("C:\\Users\\Jonat\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.exp"));
         System.out.println("Enter maths: ");
         try (PrintWriter writer = new PrintWriter("C:\\Users\\Jonat\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.out", "UTF-8")) {
             for (int a = 15; a > 0; a--) {
                 String input = in.nextLine();
                 float result = parse(input);
-                System.out.println(result);
                 writer.println(result);
+            }
+        }
+        Scanner out = new Scanner(new FileReader("C:\\Users\\Jonat\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.out"));
+
+        for (int a = 0; a < 15; a++) {
+            String expected = exp.nextLine();
+            String output = out.nextLine();
+            boolean check = Objects.equals(expected, output);
+            if (check) {
+                System.out.printf("Line : %02d is : OK\n", a+1);
+            } else {
+                System.out.printf("Line : %02d is : BAD\n", a+1);
             }
         }
     }
