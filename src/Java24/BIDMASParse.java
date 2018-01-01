@@ -32,7 +32,7 @@ public class BIDMASParse {
                 }
                 newOut = ('$' + newOut + '@');
                 float parsed = parse(newOut);
-                output = (output + parsed);
+                output = (output + parsed + '@');
                 a++;
             }
         }
