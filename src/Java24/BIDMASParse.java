@@ -291,17 +291,17 @@ public class BIDMASParse {
         return result;
     }
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
-        Scanner in = new Scanner(new FileReader("C:\\Users\\Jonat\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.in"));
-        Scanner exp = new Scanner(new FileReader("C:\\Users\\Jonat\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.exp"));
+        Scanner in = new Scanner(new FileReader("src/java24/test.in"));
+        Scanner exp = new Scanner(new FileReader("src/java24/test.exp"));
         System.out.println("Enter maths: ");
-        try (PrintWriter writer = new PrintWriter("C:\\Users\\Jonat\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.out", "UTF-8")) {
+        try (PrintWriter writer = new PrintWriter("src/java24/test.out", "UTF-8")) {
             for (int a = 15; a > 0; a--) {
                 String input = in.nextLine();
                 float result = parse(input);
                 writer.println(result);
             }
         }
-        Scanner out = new Scanner(new FileReader("C:\\Users\\Jonat\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.out"));
+        Scanner out = new Scanner(new FileReader("src/java24/test.out"));
 
         for (int a = 0; a < 15; a++) {
             String expected = exp.nextLine();
