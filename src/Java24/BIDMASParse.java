@@ -281,13 +281,16 @@ public class BIDMASParse {
         float result = Float.parseFloat(resultS);
         return result;
     }
-    public static void main(String[] args) throws FileNotFoundException {
-        Scanner in = new Scanner(new FileReader("C:\\Users\\Jonathan\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.in"));
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
+        Scanner in = new Scanner(new FileReader("C:\\Users\\Jonat\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.in"));
         System.out.println("Enter maths: ");
+        PrintWriter writer = new PrintWriter("C:\\Users\\Jonat\\Dropbox (Lux Software)\\Lux Software Team Folder\\Learning Project\\JavaPC24\\src\\Java24\\test.out", "UTF-8");
         for (int a = 6; a > 0; a--) {
         String input = in.nextLine();
         float result = parse(input);
         System.out.println(result);
+        writer.println(result);
         }
+        writer.close();
     }
 }
