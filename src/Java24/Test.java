@@ -53,9 +53,12 @@ class Test{
 //        String output2 = in.nextLine();
 //        System.out.println(output2);
 //    }
+//    public static void main(String[] args) {
+//        int[] a = MyMath.randomArray(50);
+//        int[] test = MyMath.histogram(a, 5);
+//        System.out.println(Arrays.toString(test));
+//    }
     public static void main(String[] args) {
-        int[] a = MyMath.randomArray(50);
-        int[] test = MyMath.histogram(a, 5);
-        System.out.println(Arrays.toString(test));
+        BIDMASParse.parse("12+(10+8)");
     }
 }
