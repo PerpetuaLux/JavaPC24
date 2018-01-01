@@ -295,7 +295,7 @@ public class BIDMASParse {
         Scanner exp = new Scanner(new FileReader("src/java24/test.exp"));
         System.out.println("Enter maths: ");
         try (PrintWriter writer = new PrintWriter("src/java24/test.out", "UTF-8")) {
-            for (int a = 15; a > 0; a--) {
+            for (int a = 16; a > 0; a--) {
                 String input = in.nextLine();
                 float result = parse(input);
                 writer.println(result);
@@ -303,7 +303,7 @@ public class BIDMASParse {
         }
         Scanner out = new Scanner(new FileReader("src/java24/test.out"));
 
-        for (int a = 0; a < 15; a++) {
+        for (int a = 0; a < 16; a++) {
             String expected = exp.nextLine();
             String output = out.nextLine();
             boolean check = Objects.equals(expected, output);
