@@ -195,7 +195,7 @@ public class BIDMASParse {
                 }
             } else if (input[a] == '-' &&  input[a-1] == '*' || input[a-1] == '/' || input[a-1] == '-' || input[a-1] == '+' || input[a-1] == '$') {
                 negative = true;
-            } else if (input [a] == '-' && !mineDone) {
+            } else if (input[a] == '-' && !mineDone) {
                 if (negative) {
                 output = (output + ((prevNum(input, a) * -1) - nextNum(input, a)));
                 } else {
