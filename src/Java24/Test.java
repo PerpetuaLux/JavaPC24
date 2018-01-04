@@ -59,6 +59,7 @@ class Test{
 //        System.out.println(Arrays.toString(test));
 //    }
     public static void main(String[] args) {
-        BIDMASParse.parse("12+(10+8)");
+        float result = BIDMASParse.parse("265-12+76/4+12*2");
+        System.out.println(result);
     }
 }

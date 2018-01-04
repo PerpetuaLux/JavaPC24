@@ -1,32 +1,26 @@
 package Java24;
 
-
-import java.util.Arrays;
-import java.util.Scanner;
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.Objects;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.util.Scanner;
 
 /**
- *
  * @author <Jonathan.Poalses>
  */
-public class BIDMASParse {
-    
+public class BIDMASProperParse {
+
     public static char[] b(char[] input) {
         int length = input.length;
         StringBuilder output = new StringBuilder();
         String newOut = "";
         for (int a = 0; a < length; a++) {
             if (input[a] != '(') {
-            output.append(input[a]);
+                output.append(input[a]);
             } else if (input[a] == '(') {
-                    a++;
+                a++;
                 for (;input[a] != ')';a++) {
                     newOut = (newOut + input[a]);
                 }
@@ -38,30 +32,31 @@ public class BIDMASParse {
         }
         return output.toString().toCharArray();
     }
+
     public static char[] i(char[] input) {
         boolean mineDone = false;
         int length = input.length;
         StringBuilder output = new StringBuilder();
         for (int a = 0; a < length; a++) {
             if (input[a] == '*' || input[a] == '+' || input[a] == '-' || input[a] == '/') {
-            output.append(prevNum(input, a)).append(input[a]);
-            mineDone = false;
+                output.append(prevNum(input, a)).append(input[a]);
+                mineDone = false;
             } else if (input [a] == '^' && !mineDone) {
                 output.append(prevNum(input, a) / nextNum(input, a));
                 mineDone = true;
                 boolean symFound = false;
                 while (!symFound) {
-                a++;
-                if (input[a] == '*' || input[a] == '+' || input[a] == '-' || input[a] == '/') {
-                output.append(input[a]);
-                symFound = true;
-                mineDone = false;
-                } else if (input[a] == '@') {
-                    break;
-                }
+                    a++;
+                    if (input[a] == '*' || input[a] == '+' || input[a] == '-' || input[a] == '/') {
+                        output.append(input[a]);
+                        symFound = true;
+                        mineDone = false;
+                    } else if (input[a] == '@') {
+                        break;
+                    }
                 }
             } else if (input[a] == '@' && !mineDone) {
-            output.append(prevNum(input, a));
+                output.append(prevNum(input, a));
                 break;
             } else if (input[a] == '@' && mineDone) {
                 break;
@@ -74,66 +69,45 @@ public class BIDMASParse {
         }
         return arrayOutput;
     }
-    public static char[] d(char[] input) {
+
+    public static char[] dm(char[] input) {
         boolean mineDone = false;
         int length = input.length;
         StringBuilder output = new StringBuilder();
         for (int a = 0; a < length; a++) {
-            if (input[a] == '*' || input[a] == '+' || input[a] == '-' || input[a] == '^') {
-            output.append(prevNum(input, a)).append(input[a]);
-            mineDone = false;
+            if ( input[a] == '+' || input[a] == '-' || input[a] == '^') {
+                output.append(prevNum(input, a)).append(input[a]);
+                mineDone = false;
             } else if (input [a] == '/' && !mineDone) {
                 output.append(prevNum(input, a) / nextNum(input, a));
                 mineDone = true;
                 boolean symFound = false;
                 while (!symFound) {
-                a++;
-                if (input[a] == '*' || input[a] == '+' || input[a] == '-' || input[a] == '^') {
-                output.append(input[a]);
-                symFound = true;
-                mineDone = false;
-                } else if (input[a] == '@') {
-                    break;
+                    a++;
+                    if (input[a] == '*' || input[a] == '+' || input[a] == '-' || input[a] == '^') {
+                        output.append(input[a]);
+                        symFound = true;
+                        mineDone = false;
+                    } else if (input[a] == '@') {
+                        break;
+                    }
                 }
-                }
-            } else if (input[a] == '@' && !mineDone) {
-            output.append(prevNum(input, a));
-                break;
-            } else if (input[a] == '@' && mineDone) {
-                break;
-            }
-        }
-        output = new StringBuilder(('$' + output.toString() + '@'));
-        char[] arrayOutput = output.toString().toCharArray();
-        if (mineDone) {
-            arrayOutput = d(arrayOutput);
-        }
-        return arrayOutput;
-    }
-    public static char[] m(char[] input) {
-        boolean mineDone = false;
-        int length = input.length;
-        StringBuilder output = new StringBuilder();
-        for (int a = 0; a < length; a++) {
-            if (input[a] == '/' || input[a] == '+' || input[a] == '-' || input[a] == '^') {
-            output.append(prevNum(input, a)).append(input[a]);
-            mineDone = false;
             } else if (input [a] == '*' && !mineDone) {
                 output.append(prevNum(input, a) * nextNum(input, a));
                 mineDone = true;
                 boolean symFound = false;
                 while (!symFound) {
-                a++;
-                if (input[a] == '/' || input[a] == '+' || input[a] == '-' || input[a] == '^') {
-                output.append(input[a]);
-                symFound = true;
-                mineDone = false;
-                } else if (input[a] == '@') {
-                    break;
-                }
+                    a++;
+                    if (input[a] == '*' || input[a] == '+' || input[a] == '-' || input[a] == '^') {
+                        output.append(input[a]);
+                        symFound = true;
+                        mineDone = false;
+                    } else if (input[a] == '@') {
+                        break;
+                    }
                 }
             } else if (input[a] == '@' && !mineDone) {
-            output.append(prevNum(input, a));
+                output.append(prevNum(input, a));
                 break;
             } else if (input[a] == '@' && mineDone) {
                 break;
@@ -142,63 +116,31 @@ public class BIDMASParse {
         output = new StringBuilder(('$' + output.toString() + '@'));
         char[] arrayOutput = output.toString().toCharArray();
         if (mineDone) {
-            arrayOutput = m(arrayOutput);
+            arrayOutput = dm(arrayOutput);
         }
         return arrayOutput;
     }
-    public static char[] a(char[] input) {
-        boolean mineDone = false;
-        int length = input.length;
-        StringBuilder output = new StringBuilder();
-        for (int a = 0; a < length; a++) {
-            if (input[a] == '*' || input[a] == '/' || input[a] == '-' || input[a] == '^') {
-            output.append(prevNum(input, a)).append(input[a]);
-            mineDone = false;
-            } else if (input [a] == '+' && !mineDone) {
-                output.append(prevNum(input, a) + nextNum(input, a));
-                mineDone = true;
-                boolean endFound = false;
-                while (!endFound) {
-                a++;
-                if (input[a] == '*' || input[a] == '/' || input[a] == '-' || input[a] == '^' || input[a] == '+') {
-                output.append(input[a]);
-                output.append(nextNum(input, a));
-                } else if (input[a] == '@') {
-                    endFound = true;
-                }
-                }
-            } else if (input[a] == '@') {
-            output.append(prevNum(input, a));
-                break;
-            }
-        }
-        output = new StringBuilder(('$' + output.toString() + '@'));
-        char[] arrayOutput = output.toString().toCharArray();
-        if (mineDone) {
-            arrayOutput = a(arrayOutput);
-        }
-        return arrayOutput;
-    }
-    public static char[] s(char[] input) {
+
+    public static char[] as(char[] input) {
         boolean mineDone = false;
         int length = input.length;
         boolean negative = false;
         StringBuilder output = new StringBuilder();
         for (int a = 1; a < length; a++) {
-            if (input[a] == '*' || input[a] == '+' || input[a] == '/' || input[a] == '^') {
+            if (input[a] == '*' || input[a] == '/' || input[a] == '^') {
                 if (input[a-1] != '$' || input[a-1] != '+' || input[a-1] != '/' || input[a-1] != '^' || input[a-1] != '*') {
-            output.append(prevNum(input, a)).append(input[a]);
-            mineDone = false;
+                    output.append(prevNum(input, a)).append(input[a]);
+                    mineDone = false;
                 }
             } else if (input[a] == '-' && !mineDone) {
                 if (input[a-1] == '*' || input[a-1] == '/' || input[a-1] == '-' || input[a-1] == '+' || input[a-1] == '$') {
                     negative = true;
                 }
                 if (negative && input[a-1] != '$') {
-                output.append((prevNum(input, a) * -1) - nextNum(input, a));
+                    output.append((prevNum(input, a) * -1) - nextNum(input, a));
                     mineDone = true;
                 } else if (input[a-1] != '$') {
-                output.append(prevNum(input, a) - nextNum(input, a));
+                    output.append(prevNum(input, a) - nextNum(input, a));
                     mineDone = true;
                 } else if (input[a-1] == '$' && negative) {
                     output.append('-');
@@ -206,17 +148,42 @@ public class BIDMASParse {
                 }
                 boolean symFound = false;
                 while (!symFound) {
-                a++;
-                if (input[a] == '*' || input[a] == '+' || input[a] == '/' || input[a] == '^') {
-                output.append(input[a]);
-                symFound = true;
-                mineDone = false;
-                } else if (input[a] == '@') {
-                    break;
+                    a++;
+                    if (input[a] == '*' || input[a] == '+' || input[a] == '/' || input[a] == '^') {
+                        output.append(input[a]);
+                        symFound = true;
+                        mineDone = false;
+                    } else if (input[a] == '@') {
+                        break;
+                    }
                 }
+            } else if (input[a] == '+' && !mineDone) {
+                if (input[a-1] == '*' || input[a-1] == '/' || input[a-1] == '-' || input[a-1] == '+' || input[a-1] == '$') {
+                    negative = true;
+                }
+                if (negative && input[a-1] != '$') {
+                    output.append((prevNum(input, a) * -1) + nextNum(input, a));
+                    mineDone = true;
+                } else if (input[a-1] != '$') {
+                    output.append(prevNum(input, a) + nextNum(input, a));
+                    mineDone = true;
+                } else if (input[a-1] == '$' && negative) {
+                    output.append('-');
+                    output.append(nextNum(input, a));
+                }
+                boolean symFound = false;
+                while (!symFound) {
+                    a++;
+                    if (input[a] == '*' || input[a] == '+' || input[a] == '/' || input[a] == '^') {
+                        output.append(input[a]);
+                        symFound = true;
+                        mineDone = false;
+                    } else if (input[a] == '@') {
+                        break;
+                    }
                 }
             } else if (input[a] == '@' && !mineDone) {
-            output.append(prevNum(input, a));
+                output.append(prevNum(input, a));
                 break;
             } else if (input[a] == '@' && mineDone) {
                 break;
@@ -225,10 +192,11 @@ public class BIDMASParse {
         output = new StringBuilder(('$' + output.toString() + '@'));
         char[] arrayOutput = output.toString().toCharArray();
         if (mineDone) {
-            arrayOutput = s(arrayOutput);
+            arrayOutput = as(arrayOutput);
         }
         return arrayOutput;
     }
+
     public static float nextNum(char[] input, int pos) {
         int length = input.length;
         StringBuilder output = new StringBuilder();
@@ -245,6 +213,7 @@ public class BIDMASParse {
         }
         return Float.parseFloat(output.toString());
     }
+
     public static float prevNum(char[] input, int pos) {
         int length = input.length;
         StringBuilder output = new StringBuilder();
@@ -254,17 +223,18 @@ public class BIDMASParse {
             output.append(input[pos]);
             pos--;
         }
-            if (input[pos] == '-') {
-                if (input[pos-1] == '*' || input[pos-1] == '+' || input[pos-1] == '/' || input[pos-1] == '^' || input[pos-1] == '/' || input[pos-1] == '-') {
-                    output.append('-');
-                }
+        if (input[pos] == '-') {
+            if (input[pos-1] == '*' || input[pos-1] == '+' || input[pos-1] == '/' || input[pos-1] == '^' || input[pos-1] == '/' || input[pos-1] == '-') {
+                output.append('-');
             }
+        }
         char[] process = output.toString().toCharArray();
         for (int a = 0; a < process.length; a++) {
             output2 = output2 + process[(process.length) - 1 - a];
         }
         return Float.parseFloat(output2);
     }
+
     public static float parse(String mainInput) {
         mainInput = ('$' + mainInput + '@');
         char[] preput = mainInput.toCharArray();
@@ -278,19 +248,18 @@ public class BIDMASParse {
         char[] input = inputS.toCharArray();
         char[] process = b(input);
         process = i(process);
-        process = d(process);
-        process = m(process);
-        process = a(process);
-        process = s(process);
+        process = dm(process);
+        process = as(process);
         String resultS = "";
         for (int a = 0; a < process.length; a++) {
             if (process[a] != '$' && process[a] != '@') {
-            resultS = (resultS + process[a]);
+                resultS = (resultS + process[a]);
             }
         }
         float result = Float.parseFloat(resultS);
         return result;
     }
+
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
         Scanner in = new Scanner(new FileReader("src/java24/test.in"));
         Scanner exp = new Scanner(new FileReader("src/java24/test.exp"));
@@ -315,4 +284,5 @@ public class BIDMASParse {
             }
         }
     }
+
 }
