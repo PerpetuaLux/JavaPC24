@@ -58,8 +58,51 @@ class Test{
 //        int[] test = MyMath.histogram(a, 5);
 //        System.out.println(Arrays.toString(test));
 //    }
-    public static void main(String[] args) {
-        float result = BIDMASParse.parse("265-12+76/4+12*2");
-        System.out.println(result);
+//    public static void main(String[] args) {
+//        float result = BIDMASProperParse.parse("5+5-5+5");
+//        System.out.println(result);
+//    }
+
+    public static String check(char a) {
+        System.out.println(a);
+        return "char";
     }
+    public static String check(int a) {
+        System.out.println(a);
+        return "int";
+    }
+    public static String check(double a) {
+        System.out.println(a);
+        return "double";
+    }
+    public static String check(String a) {
+        System.out.println(a);
+        return "String";
+    }
+    public static void main(String[] args) {
+        String result;
+        result = check(true + "test");
+        System.out.println("b + s =" + result);
+        result = check('a' + 'a');
+        System.out.println("c + c =" + result);
+        result = check('a' + 7);
+        System.out.println("c + i =" + result);
+        result = check('a' + 7.0);
+        System.out.println("c + d =" + result);
+        result = check('a' + "test");
+        System.out.println("c + s =" + result);
+        result = check(7 + 7);
+        System.out.println("i + i =" + result);
+        result = check(7 + 7.0);
+        System.out.println("i + d =" + result);
+        result = check(7 + "test");
+        System.out.println("i + s =" + result);
+        result = check(7.0 + 7.0);
+        System.out.println("d + d =" + result);
+        result = check(7.0 + "test");
+        System.out.println("d + s =" + result);
+        result = check("test" + "test");
+        System.out.println("s + s =" + result);
+    }
+
 }

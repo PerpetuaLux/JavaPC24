@@ -78,30 +78,23 @@ public class BIDMASProperParse {
             if ( input[a] == '+' || input[a] == '-' || input[a] == '^') {
                 output.append(prevNum(input, a)).append(input[a]);
                 mineDone = false;
-            } else if (input [a] == '/' && !mineDone) {
-                output.append(prevNum(input, a) / nextNum(input, a));
-                mineDone = true;
-                boolean symFound = false;
-                while (!symFound) {
-                    a++;
-                    if (input[a] == '*' || input[a] == '+' || input[a] == '-' || input[a] == '^') {
-                        output.append(input[a]);
-                        symFound = true;
-                        mineDone = false;
-                    } else if (input[a] == '@') {
-                        break;
-                    }
+            } else if (input [a] == '/' || input[a] == '*' && !mineDone) {
+                if (input[a] == '/') {
+                    output.append(prevNum(input, a) / nextNum(input, a));
+                } else if (input[a] == '*') {
+                    output.append(prevNum(input, a) * nextNum(input, a));
                 }
-            } else if (input [a] == '*' && !mineDone) {
-                output.append(prevNum(input, a) * nextNum(input, a));
                 mineDone = true;
                 boolean symFound = false;
                 while (!symFound) {
                     a++;
-                    if (input[a] == '*' || input[a] == '+' || input[a] == '-' || input[a] == '^') {
+                    if (input[a] == '*' || input[a] == '+' || input[a] == '/' || input[a] == '^' || input[a] == '-') {
                         output.append(input[a]);
                         symFound = true;
-                        mineDone = false;
+                        a++;
+                        for (; a < length && input[a] != '@'; a++) {
+                            output.append(input[a]);
+                        }
                     } else if (input[a] == '@') {
                         break;
                     }
@@ -132,40 +125,23 @@ public class BIDMASProperParse {
                     output.append(prevNum(input, a)).append(input[a]);
                     mineDone = false;
                 }
-            } else if (input[a] == '-' && !mineDone) {
+            } else if (input[a] == '-' || input[a] == '+' && !mineDone) {
                 if (input[a-1] == '*' || input[a-1] == '/' || input[a-1] == '-' || input[a-1] == '+' || input[a-1] == '$') {
                     negative = true;
                 }
                 if (negative && input[a-1] != '$') {
-                    output.append((prevNum(input, a) * -1) - nextNum(input, a));
-                    mineDone = true;
-                } else if (input[a-1] != '$') {
-                    output.append(prevNum(input, a) - nextNum(input, a));
-                    mineDone = true;
-                } else if (input[a-1] == '$' && negative) {
-                    output.append('-');
-                    output.append(nextNum(input, a));
-                }
-                boolean symFound = false;
-                while (!symFound) {
-                    a++;
-                    if (input[a] == '*' || input[a] == '+' || input[a] == '/' || input[a] == '^') {
-                        output.append(input[a]);
-                        symFound = true;
-                        mineDone = false;
-                    } else if (input[a] == '@') {
-                        break;
+                    if (input[a] == '+') {
+                        output.append((prevNum(input, a) * -1) - nextNum(input, a));
+                    } else {
+                        output.append((prevNum(input, a) * -1) - nextNum(input, a));
                     }
-                }
-            } else if (input[a] == '+' && !mineDone) {
-                if (input[a-1] == '*' || input[a-1] == '/' || input[a-1] == '-' || input[a-1] == '+' || input[a-1] == '$') {
-                    negative = true;
-                }
-                if (negative && input[a-1] != '$') {
-                    output.append((prevNum(input, a) * -1) + nextNum(input, a));
                     mineDone = true;
                 } else if (input[a-1] != '$') {
-                    output.append(prevNum(input, a) + nextNum(input, a));
+                    if (input[a] == '+') {
+                        output.append(prevNum(input, a) + nextNum(input, a));
+                    } else {
+                        output.append(prevNum(input, a) - nextNum(input, a));
+                    }
                     mineDone = true;
                 } else if (input[a-1] == '$' && negative) {
                     output.append('-');
@@ -174,10 +150,13 @@ public class BIDMASProperParse {
                 boolean symFound = false;
                 while (!symFound) {
                     a++;
-                    if (input[a] == '*' || input[a] == '+' || input[a] == '/' || input[a] == '^') {
+                    if (input[a] == '*' || input[a] == '+' || input[a] == '/' || input[a] == '^' || input[a] == '-') {
                         output.append(input[a]);
                         symFound = true;
-                        mineDone = false;
+                        a++;
+                        for (; a < length && input[a] != '@'; a++) {
+                            output.append(input[a]);
+                            }
                     } else if (input[a] == '@') {
                         break;
                     }
