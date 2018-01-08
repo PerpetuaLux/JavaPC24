@@ -257,6 +257,20 @@ public class MyMath {
         }
         return result;
     }
+
+    public static int parenthesisCount(String s) {
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(') {
+                count++;
+            } else if (c == ')') {
+                count--;
+            }
+        }
+        return count;
+    }
+
     
     public static int indexOfMax(double[] a) {
         int max = 0;
