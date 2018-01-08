@@ -148,8 +148,7 @@ public class MyMath {
             return 1;
         }
         int recurse = factorial(n-1);
-        int result = n * recurse;
-        return result;
+        return n * recurse;
     }
     public static int ifactorial(int num) {
         int result = 1;
@@ -239,6 +238,22 @@ public class MyMath {
             result[i]  = inRange(a, buildup, buildup + size);
             i++;
             buildup = buildup + size;
+        }
+        return result;
+    }
+
+    public static int[] letterHist(String input) {
+        char[] preput = input.toCharArray();
+        int[] result = new int[25];
+        for (int a = 0; a < preput.length; a++) {
+            int letter = (int)preput[a] - 97;
+            if (letter == -65) {
+            } else if (letter < 0) {
+                letter = letter + 32;
+                result[letter] = result[letter] + 1;
+            } else {
+                result[letter] = result[letter] + 1;
+            }
         }
         return result;
     }

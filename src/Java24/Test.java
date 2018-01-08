@@ -62,7 +62,7 @@ class Test{
 //        float result = BIDMASProperParse.parse("5+5-5+5");
 //        System.out.println(result);
 //    }
-
+/*
     public static String check(char a) {
         System.out.println(a);
         return "char";
@@ -103,6 +103,11 @@ class Test{
         System.out.println("d + s =" + result);
         result = check("test" + "test");
         System.out.println("s + s =" + result);
-    }
+    }*/
 
+
+    public static void main(String[] args) {
+        int[] result = MyMath.letterHist("IS THIS THE REAL LIFE");
+        System.out.println(Arrays.toString(result));
+    }
 }
