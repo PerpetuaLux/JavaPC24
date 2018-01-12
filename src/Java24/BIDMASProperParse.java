@@ -144,12 +144,29 @@ public class BIDMASProperParse {
                     }
                     mineDone = true;
                 } else if (input[a-1] == '$' && negative) {
-                    output.append('-');
-                    output.append(nextNum(input, a));
+                    a++;
+                    while (true) {
+                        if (input[a] == '*' || input[a] == '+' || input[a] == '/' || input[a] == '^' || input[a] == '-' || input[a] == '@') {
+                            break;
+                        }
+                        a++;
+                    }
+                    if (input[a] == '@') {
+                        output.append('-');
+                        output.append(prevNum(input, a));
+                    } else {
+                        float proc = (prevNum(input, a) - nextNum(input, a));
+                        proc = proc * -1;
+                        output.append(proc);
+                        mineDone = true;
+
+                    }
                 }
                 boolean symFound = false;
                 while (!symFound) {
-                    a++;
+                    if (input[a] != '@') {
+                        a++;
+                    }
                     if (input[a] == '*' || input[a] == '+' || input[a] == '/' || input[a] == '^' || input[a] == '-') {
                         output.append(input[a]);
                         symFound = true;
@@ -244,15 +261,15 @@ public class BIDMASProperParse {
         Scanner exp = new Scanner(new FileReader("src/java24/test.exp"));
         System.out.println("Enter maths: ");
         try (PrintWriter writer = new PrintWriter("src/java24/test.out", "UTF-8")) {
-            for (int a = 16; a > 0; a--) {
+            for (int a = 52; a > 0; a--) {
                 String input = in.nextLine();
                 float result = parse(input);
                 writer.println(result);
             }
         }
         Scanner out = new Scanner(new FileReader("src/java24/test.out"));
-
-        for (int a = 0; a < 16; a++) {
+        int bad = 0;
+        for (int a = 0; a < 52; a++) {
             String expected = exp.nextLine();
             String output = out.nextLine();
             boolean check = Objects.equals(expected, output);
@@ -260,8 +277,10 @@ public class BIDMASProperParse {
                 System.out.printf("Line : %02d is : OK\n", a+1);
             } else {
                 System.out.printf("Line : %02d is : BAD\n", a+1);
+                bad++;
             }
         }
+        System.out.printf("Failed : %d/52", bad);
     }
 
 }
