@@ -81,9 +81,8 @@ public class MyMath {
      * @return Returns the value of the first argument raised to the power of the second argument
      */
     public static double pow(double x, int n) {
-        if (n == 0) {
-            return 1;
-        } else if (isEven(n)) {
+        if (n == 0) return 1;
+        else if (isEven(n)) {
             if (!isPositive(n)) {
                 return 1 / pow(x, -n);
             }
