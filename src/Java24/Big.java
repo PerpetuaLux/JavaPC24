@@ -17,7 +17,7 @@ public class Big {
         }
     }
     public static void main(String[] args) {
-        for (int i = 0; i < 3000; i++) {
+        for (int i = 0; i < 300; i++) {
             System.out.print(i);
             System.out.println(" -> " + ifactorial(i));
         }
