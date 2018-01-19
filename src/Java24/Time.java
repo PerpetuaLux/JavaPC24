@@ -26,6 +26,7 @@ public class Time {
 
         return minute;
     }
+    //test2
     public void setMinute(int minute) {
         this.minute = minute;
     }
