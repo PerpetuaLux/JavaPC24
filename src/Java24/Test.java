@@ -104,10 +104,14 @@ class Test{
         result = check("test" + "test");
         System.out.println("s + s =" + result);
     }*/
-
-
+/*
     public static void main(String[] args) {
         int[] result = MyMath.letterHist("IS THIS THE REAL LIFE");
         System.out.println(Arrays.toString(result));
+    }*/
+    public static void main(String[] args) {
+        Time time = new Time();
+        System.out.println(time.getHour());
     }
+
 }
