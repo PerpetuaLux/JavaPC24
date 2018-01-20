@@ -23,7 +23,6 @@ public class Time {
     }
 
     public int getMinute() {
-
         return minute;
     }
     //test2
