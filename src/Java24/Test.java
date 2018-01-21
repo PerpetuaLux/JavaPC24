@@ -112,6 +112,7 @@ class Test{
     public static void main(String[] args) {
         Time time = new Time();
         System.out.println(time.getHour());
+        System.out.print(System.currentTimeMillis());
     }
 
 }
