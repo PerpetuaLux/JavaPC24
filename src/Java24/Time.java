@@ -2,7 +2,7 @@ package Java24;
 
 import java.util.*;
 public class Time {
-    static Calendar now = Calendar.getInstance();
+    private static Calendar now = Calendar.getInstance();
 
     public int getHour() {
         return hour;
@@ -33,7 +33,7 @@ public class Time {
     private int minute;
     private int second;
     private int secondsTotal = 24 * 60 * 60;
-     public Time() {
+     Time() {
         this.hour = now.get(Calendar.HOUR_OF_DAY);
         this.minute = now.get(Calendar.MINUTE);
         this.second = now.get(Calendar.SECOND);

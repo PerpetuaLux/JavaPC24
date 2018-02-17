@@ -109,10 +109,8 @@ class Test{
         int[] result = MyMath.letterHist("IS THIS THE REAL LIFE");
         System.out.println(Arrays.toString(result));
     }*/
-    public static void main(String[] args) {
-        Time time = new Time();
-        System.out.println(time.getHour());
-        System.out.print(System.currentTimeMillis());
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner test = new Scanner(new FileReader("src/java24/test.txt"));
     }
 
 }
