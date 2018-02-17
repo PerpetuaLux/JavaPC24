@@ -111,6 +111,11 @@ class Test{
     }*/
     public static void main(String[] args) throws FileNotFoundException {
         Scanner test = new Scanner(new FileReader("src/java24/test.txt"));
+        int[] testa = new int[2];
+        testa[0] = 1;
+        testa[1] = 2;
+        testa[2] = 3;
+        System.out.println(testa[2]);
     }
 
 }
