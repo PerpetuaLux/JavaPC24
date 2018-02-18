@@ -6,7 +6,7 @@ public class EnhancedRisingOvertakeComparitor {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         //enter value for a
-        System.out.println("Remember : Enter initial values in descending size (smallest first)");
+        System.out.println("Remember : Enter initial values in descending size (biggest first)");
         System.out.print("Enter number of values to compare: ");
         if (!in.hasNextInt()) {
             String error = in.next();
