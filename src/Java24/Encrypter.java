@@ -17,8 +17,8 @@ public class Encrypter {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter text to be encrypted: ");
         String input = in.nextLine();
-        System.out.println("Jonathan: " + jonathansOutput(input));
-        System.out.println("Dad: " + dadsOutput(input));
+//        System.out.println("Jonathan: " + jonathansOutput(input));
+        System.out.println(/*"Dad: " + */dadsOutput(input));
     }
 
     private static String jonathansOutput(String input) {
