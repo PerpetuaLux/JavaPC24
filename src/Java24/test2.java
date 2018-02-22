@@ -7,4 +7,9 @@ public class test2 {
     private JTextPane testTextPane;
     private JProgressBar progressBar1;
 
+
+
+    public static void main(String[] args) {
+
+    }
 }
