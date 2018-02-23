@@ -8,7 +8,7 @@ import java.io.IOException;
 public class GooeyTemplate extends JFrame{
 
     public GooeyTemplate() {
-        super("Income Calculator");
+        super("GooeyTemplate");
         //Set the initial layout
         setLookAndFeel();
         setSize(550, 600);
