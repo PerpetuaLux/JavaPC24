@@ -189,6 +189,8 @@
               </grid>
             </constraints>
             <properties>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
               <text value="Hello"/>
             </properties>
           </component>
