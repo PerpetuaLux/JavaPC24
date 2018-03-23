@@ -27,6 +27,9 @@ public class test2 {
     private JButton increase20Button;
     private JButton decrease20Button;
     private JTextArea textArea1;
+    private JFileChooser chooser;
+    private String choosertitle;
+
 
     public test2() {
         ImageIcon test = createImageIcon("test.png", "Test");
@@ -37,7 +40,27 @@ public class test2 {
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Hello World!");
+
+            int result;
+
+            chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        chooser.setDialogTitle(choosertitle);
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            //
+            // disable the "All files" option.
+            //
+        chooser.setAcceptAllFileFilterUsed(false);
+            //
+        if (chooser.showOpenDialog(chooser) == JFileChooser.APPROVE_OPTION) {
+                System.out.println("getCurrentDirectory(): "
+                        +  chooser.getCurrentDirectory());
+                System.out.println("getSelectedFile() : "
+                        +  chooser.getSelectedFile());
+            }
+        else {
+                System.out.println("No Selection ");
+            }
             }
         });
         textArea1.addFocusListener(new FocusAdapter() {

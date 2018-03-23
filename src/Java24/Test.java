@@ -109,13 +109,24 @@ class Test{
         int[] result = MyMath.letterHist("IS THIS THE REAL LIFE");
         System.out.println(Arrays.toString(result));
     }*/
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         Scanner test = new Scanner(new FileReader("src/java24/test.txt"));
-        int[] testa = new int[2];
-        testa[0] = 1;
-        testa[1] = 2;
-        testa[2] = 3;
-        System.out.println(testa[2]);
+        File oldfile = new File("src/java24/test.out");
+        File newfile = new File("src/java24/testnew.out");
+        boolean Rename = oldfile.renameTo(newfile);
+        System.out.println(Rename);
+//        File inputFile = new File("src/java24/test.out");
+//        File outputFile = new File ("src/java24/output.out");
+//
+//        FileReader in = new FileReader(inputFile);
+//        FileWriter out = new FileWriter(outputFile);
+//        int c;
+//
+//        while ((c = in.read()) != -1)
+//            out.write(c);
+//
+//        in.close();
+//        out.close();
     }
 
 }
