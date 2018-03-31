@@ -28,7 +28,6 @@ public class test2 {
     private JButton decrease20Button;
     private JTextArea textArea1;
     private JFileChooser chooser;
-    private String choosertitle;
 
 
     public test2() {
@@ -45,7 +44,7 @@ public class test2 {
 
             chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
-        chooser.setDialogTitle(choosertitle);
+        chooser.setDialogTitle("Select Directory");
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             //
             // disable the "All files" option.

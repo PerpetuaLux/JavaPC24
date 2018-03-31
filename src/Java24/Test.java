@@ -109,24 +109,43 @@ class Test{
         int[] result = MyMath.letterHist("IS THIS THE REAL LIFE");
         System.out.println(Arrays.toString(result));
     }*/
-    public static void main(String[] args) throws IOException {
-        Scanner test = new Scanner(new FileReader("src/java24/test.txt"));
-        File oldfile = new File("src/java24/test.out");
-        File newfile = new File("src/java24/testnew.out");
-        boolean Rename = oldfile.renameTo(newfile);
-        System.out.println(Rename);
-//        File inputFile = new File("src/java24/test.out");
-//        File outputFile = new File ("src/java24/output.out");
-//
-//        FileReader in = new FileReader(inputFile);
-//        FileWriter out = new FileWriter(outputFile);
-//        int c;
-//
-//        while ((c = in.read()) != -1)
-//            out.write(c);
-//
-//        in.close();
-//        out.close();
+//    public static void main(String[] args) throws IOException {
+//        Scanner test = new Scanner(new FileReader("src/java24/test.txt"));
+//        File oldfile = new File("src/java24/test.out");
+//        File newfile = new File("src/java24/testnew.out");
+//        boolean Rename = oldfile.renameTo(newfile);
+//        System.out.println(Rename);
+////        File inputFile = new File("src/java24/test.out");
+////        File outputFile = new File ("src/java24/output.out");
+////
+////        FileReader in = new FileReader(inputFile);
+////        FileWriter out = new FileWriter(outputFile);
+////        int c;
+////
+////        while ((c = in.read()) != -1)
+////            out.write(c);
+////
+////        in.close();
+////        out.close();
+//    }
+    public static void main(String[] args) {
+        System.out.print("Integer: ");
+        System.out.println(Integer.MAX_VALUE);
+        System.out.print("Long: ");
+        System.out.println(Long.MAX_VALUE);
+        System.out.print("Float: ");
+        System.out.println(Float.MAX_VALUE);
+        System.out.print("Double: ");
+        System.out.println(Double.MAX_VALUE);
+        int x = 1;
+        int y = 2;
+        if (x == y) {
+            System.out.println("true");
+        } else {
+            System.out.println("false");
+        }
+        String output = x == y ? "true" : "false";
+        System.out.println(output);
     }
 
 }
