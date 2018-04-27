@@ -21,5 +21,6 @@ public class AgeFinder {
         System.out.println("Age:");
         System.out.println("Years: " + outputYear);
         System.out.println("Days: " + outputDay);
+
     }
 }
