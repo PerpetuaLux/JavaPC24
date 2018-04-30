@@ -18,6 +18,10 @@ public class AgeFinder {
         int birthDay = in.nextInt();
         int outputYear = (year - birthYear);
         int outputDay = (day - birthDay - ((birthMonth - 1) * 30));
+        if (outputDay < 0) {
+            outputDay = outputDay + 365;
+            outputYear--;
+        }
         System.out.println("Age:");
         System.out.println("Years: " + outputYear);
         System.out.println("Days: " + outputDay);
