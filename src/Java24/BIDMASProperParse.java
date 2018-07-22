@@ -1,9 +1,6 @@
 package Java24;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -257,6 +254,13 @@ public class BIDMASProperParse {
     }
 
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
+        try {
+            Scanner in = new Scanner(new FileReader("src/java24/test.in"));
+        } catch (Exception FileNotFoundException) {
+            System.err.println("Input File not Found, Creating...");
+            File in = new File("src/java24/testtest.in");
+            return;
+        }
         Scanner in = new Scanner(new FileReader("src/java24/test.in"));
         Scanner exp = new Scanner(new FileReader("src/java24/test.exp"));
         System.out.println("Enter maths: ");

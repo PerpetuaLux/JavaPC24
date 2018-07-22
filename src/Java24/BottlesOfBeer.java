@@ -19,11 +19,16 @@ public class BottlesOfBeer {
                     + "ya' can't take one down, ya' cant pass it around,\n"
                     + "'cause there are no more bottles of %s on the wall!\n", liquid, liquid, liquid);
             return;
-        } else {
-        System.out.printf("%d bottles of %s on the wall,\n"
-                + "%d bottles of %s,\n"
-                + "ya' take on down, ya' pass it around,\n"
-                + "%d bottles of %s on the wall.\n\n", number, liquid, number, liquid, number - 1, liquid);
+        } else if (number == 1){
+            System.out.printf("%d bottle of %s on the wall,\n"
+                    + "%d bottle of %s,\n"
+                    + "ya' take on down, ya' pass it around,\n"
+                    + "%d bottles of %s on the wall.\n\n", number, liquid, number, liquid, number - 1, liquid);
+        } else  {
+            System.out.printf("%d bottles of %s on the wall,\n"
+                    + "%d bottles of %s,\n"
+                    + "ya' take on down, ya' pass it around,\n"
+                    + "%d bottles of %s on the wall.\n\n", number, liquid, number, liquid, number - 1, liquid);
         }
         number--;
         chorus(liquid, number);

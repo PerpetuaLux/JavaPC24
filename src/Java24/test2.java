@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
-import static Java24.temp.createImageIcon;
 
 public class test2 {
 
@@ -31,11 +30,7 @@ public class test2 {
 
 
     public test2() {
-        ImageIcon test = createImageIcon("test.png", "Test");
-        if (test != null) {
-            button3.setIcon(test);
-            button3.setText("");
-        }
+
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
